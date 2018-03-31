@@ -1,0 +1,63 @@
+/* Space out content a bit */
+body {
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #555;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#your-gpa {
+  font-size: 84px;
+}
+
+#gradeLetter{
+  display: block;
+  margin: auto;
+  margin-bottom: 16px;
+}
+
+#gpaForm{
+  margin-bottom: 16px;
+}
+
+#courseContainer {
+  width: 60%;
+  margin: auto;
+  text-align: left;
+
+}
+
+.standard-layout {
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+
+.course{
+  margin-top: 16px;
+}
+
+.course * {
+  margin-right: 64px;
+}
+
+.form-group input{
+  width: 70%;
+  margin: auto;
+}
+
+.border-styles {
+  border-style: solid;
+  border: solid;
+  border-radius: 12px;
+  border-color: #999;
+}
+
+footer{
+  font-size: 11px;
+}
+
+.clear-space {
+  margin: 0;
+  padding: 0;
+}
