@@ -39,8 +39,8 @@
     }
  ],
  "start_url": "/GPAcalculator/index.html",
-  "background_color": "#5495ff",
+  "background_color": "#007bff",
   "display": "standalone",
   "scope": "/GPAcalculator/",
-  "theme_color": "#5495ff"
+  "theme_color": "#007bff"
 }
