@@ -8,7 +8,7 @@ window.onload = () => {
 
 function registerWorker(){
   if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js', { scope: '/' })
+    navigator.serviceWorker.register('/GPAcalculator/sw.js', { scope: '/GPAcalculator/' })
       .then(function(registration) {
             console.log('Service Worker Registered');
       });

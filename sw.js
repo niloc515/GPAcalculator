@@ -1,3 +1,11 @@
+let APP_PREFIX = 'GPAcalculator'     // Identifier for this app (this needs to be consistent across every cache update)
+let VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
+let CACHE_NAME = APP_PREFIX + VERSION
+let URLS = [                            // URLs to be cached
+'/{repository}/',                     
+'/{repository}/index.html'            
+]
+
 self.addEventListener('install', function(e) {
     e.waitUntil(
       caches.open('gpaCalculator').then(function(cache) {
