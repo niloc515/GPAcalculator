@@ -70,7 +70,7 @@ function fetchClasses() {//start fetchClasses
   //Build output
   courseContainer.innerHTML = '';
 
-  if(classes.length > 0) {
+  if(classes && classes.length > 0) {
     for (let i = 0; i < classes.length; i++) {//start for
       let className = classes[i].className;
       let letter = classes[i].letter;
@@ -174,14 +174,15 @@ function validateForm(cN) {
     return false;
   }
 
+  
   let classes = JSON.parse(localStorage.getItem('classes'));
-
-  for (let i = 0; i < classes.length; i++) {
-    if (classes[i].className.toLowerCase().trim() == cN.toLowerCase().trim()) {
-      alert('You already have an entry for this course');
-      return false;
+  if (classes) {
+    for (let i = 0; i < classes.length; i++) {
+      if (classes[i].className.toLowerCase().trim() == cN.toLowerCase().trim()) {
+        alert('You already have an entry for this course');
+        return false;
+      }
     }
   }
-
   return true;
 }
