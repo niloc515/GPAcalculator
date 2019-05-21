@@ -1,4 +1,5 @@
 // listen for form Submit
+window.onload = fetchClasses();
 document.getElementById('gpaForm').addEventListener('submit', addClass);
 
 function addClass(e) {
@@ -7,6 +8,7 @@ function addClass(e) {
   let gradeLetter = document.getElementById('gradeLetter').value;
 
   if (!validateForm(courseName)) {
+    console.log('invalid course name triggered')
     return false;
   }
 
@@ -68,26 +70,28 @@ function fetchClasses() {//start fetchClasses
   //Build output
   courseContainer.innerHTML = '';
 
-  for (let i = 0; i < classes.length; i++) {//start for
-    let className = classes[i].className;
-    let letter = classes[i].letter;
-    let num = classes[i].grade;
-    let colour = classes[i].colour;
-    let id = classes[i].classId;
-
-    courseContainer.innerHTML += '<div class="course">' +
-                                  '<h3>' +
-                                  className + ': &nbsp;' +
-                                  ' <span style="color:' + colour + '"">' + letter + '</span>' +
-                                  ' <span style="color:' + colour + '"">' + num + '</span>' +
-                                  '<a onClick="deleteClass(\'' + id +
-                                  '\')" class="btn btn-danger" href="">remove</a>' +
-                                  '</h3>' +
-                                  '<hr>' +
-                                  '</div>';
-  }//end for
-
-  calculateGpa();
+  if(classes.length > 0) {
+    for (let i = 0; i < classes.length; i++) {//start for
+      let className = classes[i].className;
+      let letter = classes[i].letter;
+      let num = classes[i].grade;
+      let colour = classes[i].colour;
+      let id = classes[i].classId;
+  
+      courseContainer.innerHTML += '<div class="course">' +
+                                    '<h3>' +
+                                    className + ': &nbsp;' +
+                                    ' <span style="color:' + colour + '"">' + letter + '</span>' +
+                                    ' <span style="color:' + colour + '"">' + num + '</span>' +
+                                    '<a onClick="deleteClass(\'' + id +
+                                    '\')" class="btn btn-danger" href="">remove</a>' +
+                                    '</h3>' +
+                                    '<hr>' +
+                                    '</div>';
+    }//end for
+  
+    calculateGpa();
+  }
 }//end fetchClasses
 
 function deleteClass(idNum) {
@@ -172,12 +176,12 @@ function validateForm(cN) {
 
   let classes = JSON.parse(localStorage.getItem('classes'));
 
-  // for (let i = 0; i < classes.length; i++) {
-  //   if (classes.className.toLowerCase() == cN.toLowerCase) {
-  //     alert('You already have an entry for this course');
-  //     return false;
-  //   }
-  // }
+  for (let i = 0; i < classes.length; i++) {
+    if (classes[i].className.toLowerCase().trim() == cN.toLowerCase().trim()) {
+      alert('You already have an entry for this course');
+      return false;
+    }
+  }
 
   return true;
 }
