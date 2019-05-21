@@ -2,17 +2,17 @@
 document.getElementById('gpaForm').addEventListener('submit', addClass);
 
 function addClass(e) {
-  var courseName = document.getElementById('courseName').value;
-  var creditHours = document.getElementById('creditHours').value;
-  var gradeLetter = document.getElementById('gradeLetter').value;
+  let courseName = document.getElementById('courseName').value;
+  let creditHours = document.getElementById('creditHours').value;
+  let gradeLetter = document.getElementById('gradeLetter').value;
 
   if (!validateForm(courseName)) {
     return false;
   }
 
-  var gpa = getClassGpaFromLetter(gradeLetter);
+  let gpa = getClassGpaFromLetter(gradeLetter);
 
-  var course = {
+  let course = {
     className: courseName,
     hours: creditHours,
     letter: gradeLetter,
@@ -23,7 +23,7 @@ function addClass(e) {
   //test if localStorage is null
   if (localStorage.getItem('classes') === null) {
     //initialize array
-    var classes = [];
+    let classes = [];
 
     //add and set classId
     course.classId = 'c' + 0;
@@ -36,7 +36,7 @@ function addClass(e) {
   }else {
 
     //fetch classes from local local storage
-    var classes = JSON.parse(localStorage.getItem('classes'));
+    let classes = JSON.parse(localStorage.getItem('classes'));
 
     //add and set classId
     course.classId = 'c' + classes.length;
@@ -60,20 +60,20 @@ function addClass(e) {
 
 //fetch classes
 function fetchClasses() {//start fetchClasses
-  var classes = JSON.parse(localStorage.getItem('classes'));
+  let classes = JSON.parse(localStorage.getItem('classes'));
 
   //get output ID
-  var courseContainer = document.getElementById('courseContainer');
+  let courseContainer = document.getElementById('courseContainer');
 
   //Build output
   courseContainer.innerHTML = '';
 
-  for (var i = 0; i < classes.length; i++) {//start for
-    var className = classes[i].className;
-    var letter = classes[i].letter;
-    var num = classes[i].grade;
-    var colour = classes[i].colour;
-    var id = classes[i].classId;
+  for (let i = 0; i < classes.length; i++) {//start for
+    let className = classes[i].className;
+    let letter = classes[i].letter;
+    let num = classes[i].grade;
+    let colour = classes[i].colour;
+    let id = classes[i].classId;
 
     courseContainer.innerHTML += '<div class="course">' +
                                   '<h3>' +
@@ -91,10 +91,10 @@ function fetchClasses() {//start fetchClasses
 }//end fetchClasses
 
 function deleteClass(idNum) {
-  var classes = JSON.parse(localStorage.getItem('classes'));
+  let classes = JSON.parse(localStorage.getItem('classes'));
 
   //remove specified class
-  for (var i = 0; i < classes.length; i++) {
+  for (let i = 0; i < classes.length; i++) {
     if (classes[i].classId == idNum) {
       classes.splice(i, 1);
     }
@@ -108,15 +108,15 @@ function deleteClass(idNum) {
 }
 
 function calculateGpa() {
-  var x = 0;
-  var y = 0;
-  var overAllGPA = 0;
+  let x = 0;
+  let y = 0;
+  let overAllGPA = 0;
 
-  var classes = JSON.parse(localStorage.getItem('classes'));
+  let classes = JSON.parse(localStorage.getItem('classes'));
 
   if (classes[0] !== undefined) {
-    for (var i = 0; i < classes.length; i++) {
-      var tempH = parseFloat(classes[i].hours);
+    for (let i = 0; i < classes.length; i++) {
+      let tempH = parseFloat(classes[i].hours);
       y += tempH;
       x += parseFloat(classes[i].grade) * tempH;
     }
@@ -128,7 +128,7 @@ function calculateGpa() {
 }
 
 function getClassGpaFromLetter(gpaLetter) {
-  var letterGradeTable = {
+  let letterGradeTable = {
     'A+': 4.5,
     A: 4.25,
     'A-': 4.0,
@@ -170,9 +170,9 @@ function validateForm(cN) {
     return false;
   }
 
-  var classes = JSON.parse(localStorage.getItem('classes'));
+  let classes = JSON.parse(localStorage.getItem('classes'));
 
-  // for (var i = 0; i < classes.length; i++) {
+  // for (let i = 0; i < classes.length; i++) {
   //   if (classes.className.toLowerCase() == cN.toLowerCase) {
   //     alert('You already have an entry for this course');
   //     return false;
