@@ -5,12 +5,41 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#5495ff"/>
+  <meta name="Description" content="GPA Calculator">
+
   <link rel="stylesheet" href="./css/gpawithstyle.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="manifest" href="/manifest.json">
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="./images/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="./images/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="./images/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="./images/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="./images/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="./images/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="./images/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="./images/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-icon-180x180.png">
+
+  <link rel="icon" type="image/png" sizes="192x192"  href="./images/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="./images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
   <title>GPA calculator</title>
+
+  <script src="js/gpa.js"></script>
 </head>
 
 <body>
+
+  <noscript>
+
+    <h1>Hey there! I see you dont have javascript enabled.</h1>
+    <h3>Just thought I'd let you know that this website really isn't much fun without it</h3>
+
+  </noscript>
+
   <div id="form-box" class="standard-layout border-styles">
     <div id="gpa-window">
       <h1>Calculate your GPA</h1>
@@ -19,11 +48,11 @@
     </div>
     <form id="gpaForm">
       <div class="form-group">
-        <label>Course Name</label>
+        <label for="courseName">Course Name</label>
         <input type="text" class="form-control" id="courseName" placeholder="Name of the class">
       </div>
       <div class="form-group">
-      <p>Credit Hours:</p>
+      <label for="creditHours">Credit Hours:</label>
       <select id="creditHours" >
         <option value="2">2</option>
         <option value="3">3</option>
@@ -32,7 +61,7 @@
       </div>
 
       <div class="form-group">
-      <p>Grade Letter:</p>
+      <label for="gradeLetter">Grade Letter:</label>
       <select id="gradeLetter" >
         <option value="A+">A+</option>
         <option value="A">A</option>
@@ -79,9 +108,7 @@
 </body>
 
 <footer class="standard-layout">
-  <p>Seriously, don't steal my stuff</p>
-  <script src="js/gpa.js">
-  </script>
+  <p>Please don't steal my stuff</p>
 </footer>
 
 </html>

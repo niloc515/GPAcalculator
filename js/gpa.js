@@ -1,6 +1,22 @@
 // listen for form Submit
-window.onload = fetchClasses();
-document.getElementById('gpaForm').addEventListener('submit', addClass);
+window.onload = () => {
+  fetchClasses();
+
+  registerWorker();
+  document.getElementById('gpaForm').addEventListener('submit', addClass);
+}
+
+function registerWorker(){
+  if('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(function(registration) {
+            console.log('Service Worker Registered');
+      });
+    navigator.serviceWorker.ready.then(function(registration) {
+       console.log('Service Worker Ready');
+    });
+  }
+}
 
 function addClass(e) {
   let courseName = document.getElementById('courseName').value;
