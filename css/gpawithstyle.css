@@ -61,3 +61,13 @@ footer{
   margin: 0;
   padding: 0;
 }
+
+@media screen and (max-width: 600px) {
+  .form-group input{
+    width: 90%;
+  }
+
+  .standard-layout{
+    width: 85%;
+  }
+}
